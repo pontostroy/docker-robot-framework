@@ -116,7 +116,7 @@ RUN apk update \
     && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
 
 # Clean up buildtime dependencies
-  && apk del --no-cache --update-cache .build-deps
+#   && apk del --no-cache --update-cache .build-deps
 
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
@@ -136,7 +136,7 @@ ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 # Set up a volume for the generated reports
 VOLUME ${ROBOT_REPORTS_DIR}
 
-USER ${ROBOT_UID}:${ROBOT_GID}
+# USER ${ROBOT_UID}:${ROBOT_GID}
 
 # A dedicated work folder to allow for the creation of temporary files
 WORKDIR ${ROBOT_WORK_DIR}
